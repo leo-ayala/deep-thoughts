@@ -12,10 +12,16 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-
-
-
 const client = new ApolloClient({
+  request: operation => {
+    const token = localStorage.getItem('id_token');
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : ''
+      }
+    });
+  },
   uri: '/graphql'
 });
 
