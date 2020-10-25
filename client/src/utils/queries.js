@@ -50,7 +50,7 @@ export const QUERY_ME = gql`
         _id
         thoughtText
         createdAt
-        reactionCount
+        reactionCount 
         reactions {
           _id
           createdAt
